@@ -6,14 +6,15 @@
 <head runat="server">
     <title>Sumatra Office Pack</title>
     <link href="TheGreenMeany.css" rel="stylesheet" />
+    <script src="Scripts.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="moduleTop">
-            <asp:LinkButton ID="btnBack" runat="server" OnClick="btnBack_Click">
+            <asp:LinkButton ID="btnBack" runat="server" OnClientClick="SwapSatellite();" OnClick="btnBack_Click">
                 <div class="arrow-left"></div>
             </asp:LinkButton>
-            <img src="images/fdbk_rest.gif" />
+            <img id="imgSatellite" src="images/fdbk_rest.gif" />
         </div>
         <table class="moduleHolder">
             <tr>
