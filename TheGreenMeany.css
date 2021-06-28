@@ -16,6 +16,7 @@ body {
 }
 a {
     text-decoration: none;
+    color: initial;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -76,6 +77,9 @@ iframe {
     border-right: 30px solid #171717;
     margin-right: 7px;
 }
+    .arrow-left:hover {
+        border-right: 30px solid var(--light);
+    }
 
 .moduleHolder {
     width: 100vw;
@@ -83,22 +87,41 @@ iframe {
     table-layout: fixed;
 }
     .moduleHolder td {
-        width: 50%;
-        height: calc(100vh - 65px);
+        box-sizing: border-box;
+        width: 50vw;
+        height: calc(100vh - 45px);
         background-color: var(--light);
         vertical-align: top;
     }
+.btnAdministration, .btnAdministrationSelected {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 3px;
+    text-decoration: none;
+    color: var(--dark);
+}
+.btnAdministrationSelected {
+    background-color: var(--medium) !important;
+    color: var(--light);
+}
 .modulesRight {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
     background-color: var(--medium) !important;
     padding: 7px;
 }
 .btnModule {
     box-sizing: border-box;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     width: calc(100% - 5px);
-    height: calc((100vh - 75px) / 7.25);
+    //height: calc((100vh - 75px) / 7.25);
     margin: 0px;
     margin-bottom: 5px;
     border-top: 3px outset #779977;
@@ -137,4 +160,17 @@ iframe {
     color: #FFFFFF !important;
     font-family: var(--font) !important;
     letter-spacing: 1px;
+}
+
+.DStab {
+    background-color: var(--medium) !important;
+    color: var(--light);
+    padding: 1px 21px !important;
+    border-top-left-radius: 9px !important;
+    border-top-right-radius: 9px !important;
+    margin-top: 3px !important;
+    font-weight: normal !important;
+}
+.DStabActive {
+    background-color: var(--dark) !important;
 }

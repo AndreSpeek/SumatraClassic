@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Modules.aspx.cs" Inherits="Modules" %>
-
+<%@ Assembly Name="SumatraDS.WebClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=fd0f7ef77d4bfd37" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +8,7 @@
     <link href="TheGreenMeany.css" rel="stylesheet" />
     <script src="Scripts.js"></script>
 </head>
-<body>
+<body onload="SpinSatellite();">
     <form id="form1" runat="server">
         <div class="moduleTop">
             <asp:LinkButton ID="btnBack" runat="server" OnClientClick="SwapSatellite();" OnClick="btnBack_Click">
@@ -19,16 +19,18 @@
         <table class="moduleHolder">
             <tr>
                 <td>
-                    Sumatra Demo
+                    <asp:Repeater ID="rptAdministrations" runat="server" OnItemDataBound="rptAdministrations_ItemDataBound">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnAdministration" runat="server" CssClass="btnAdministration" OnClientClick="SpinSatellite();" OnClick="btnAdministration_Click" />
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </td>
                 <td class="modulesRight">
-                    <asp:LinkButton ID="btnCashflow" runat="server" CssClass="btnModule" Text="Cashflow" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnRevenue" runat="server" CssClass="btnModule" Text="Omzet" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnMyBudget" runat="server" CssClass="btnModule" Text="Mijn Budget" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnLogistics" runat="server" CssClass="btnModule" Text="Logistieke Analyse" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnSalesDashboard" runat="server" CssClass="btnModule" Text="Sales Dashboard 2021" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnCovid" runat="server" CssClass="btnModule" Text="COVID per gemeente" OnClick="btnModule_Click" />
-                    <asp:LinkButton ID="btnTimer" runat="server" CssClass="btnModule" Text="Timer" OnClick="btnModule_Click" />
+                    <asp:Repeater ID="rptModules" runat="server" OnItemDataBound="rptModules_ItemDataBound">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="btnModule" runat="server" CssClass="btnModule" OnClientClick="SpinSatellite();" OnClick="btnModule_Click" />
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </td>
             </tr>
         </table>
